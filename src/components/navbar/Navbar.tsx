@@ -1,6 +1,20 @@
+import { useContext } from "react"
+import { Link, useNavigate } from "react-router-dom"
+import { AuthContext } from "../../contexts/AuthContext"
 
 
 function Navbar() {
+
+  const navigate = useNavigate()
+
+  const { handleLogout } = useContext(AuthContext)
+
+  function logout(){
+    handleLogout()
+    alert("O usuário foi desconectado com sucesso!")
+    navigate("/")
+  }
+
   return (
     <div className="
         flex 
@@ -14,11 +28,15 @@ function Navbar() {
             flex 
             justify-between 
             text-lg">
-            Blog Pessoal
+            <Link to="/home" className="text-2xl fonte-bold"> Blog Pessoal </Link>
                 <div className="
                     flex
                     gap-4">
-                    Cadastro
+                    Postagem
+                    <Link to="/cadastro" className="text-2xl fonte-bold"> Cadastro </Link>
+                    <Link to="/login" onClick={logout} className="text-2xl fonte-bold hover:underline">
+                     Sair 
+                    </Link>
                 </div>
         </div>
     </div>

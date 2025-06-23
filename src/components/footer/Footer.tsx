@@ -23,9 +23,15 @@ function Footer() {
                 className=""
             >
             </a> */}
-            <LinkedinLogo size={32} color="#01398e" />
-            <GithubLogo size={32} color="#01398e" />
+            <a href="https://www.linkedin.com/in/wesleytecnologia/" target="_blank"> 
+              <LinkedinLogo size={32} color="#01398e" /> 
+            </a>
+            <a href="https://github.com/Wezzlim" target="_blank">
+              <GithubLogo size={32} color="#01398e" />
+            </a>
+            <a href="https://www.instagram.com/wesley_lima0/" target="_blank">
             <InstagramLogo size={32} color="#01398e" />
+            </a>
         </div>
     </div>
   )
