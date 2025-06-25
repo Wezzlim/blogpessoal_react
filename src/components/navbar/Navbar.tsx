@@ -32,11 +32,12 @@ function Navbar() {
                 <div className="
                     flex
                     gap-4">
-                    Postagem
-                    <Link to="/cadastro" className="text-2xl fonte-bold"> Cadastro </Link>
+                    <Link to='/cadastrartema' className="text-2xl fonte-bold hover:underline">Cadastro-tema</Link>
+                    <Link to='/temas' className="text-2xl fonte-bold hover:underline">Temas</Link>
+                    <Link to="/cadastro" className="text-2xl fonte-bold hover:underline"> Cadastro-usuário</Link>
                     <Link to="/login" onClick={logout} className="text-2xl fonte-bold hover:underline">
                      Sair 
-                    </Link>
+                    </Link> 
                 </div>
         </div>
     </div>
