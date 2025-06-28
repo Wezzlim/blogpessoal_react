@@ -6,6 +6,8 @@ function Footer() {
     <div className="
         bg-gray-100
         py-6
+        md:py-9
+        lg:py-12
         text-center">
         <p className="
         text-sm
@@ -16,13 +18,6 @@ function Footer() {
             flex 
             justify-center 
             gap-6 mt-4">
-            {/* <a 
-                href=""
-                target=""
-                rel=""
-                className=""
-            >
-            </a> */}
             <a href="https://www.linkedin.com/in/wesleytecnologia/" target="_blank"> 
               <LinkedinLogo size={32} color="#01398e" /> 
             </a>
