@@ -1,22 +1,27 @@
-import { useContext } from "react"
+import { useContext, type ReactNode } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { AuthContext } from "../../contexts/AuthContext"
+import { ToastAlerta } from "../../utils/ToastAlerta"
 
 
 function Navbar() {
 
   const navigate = useNavigate()
 
-  const { handleLogout } = useContext(AuthContext)
+  const { handleLogout, usuario } = useContext(AuthContext)
 
   function logout(){
     handleLogout()
-    alert("O usuário foi desconectado com sucesso!")
+    ToastAlerta("O usuário foi desconectado com sucesso!", "info")
     navigate("/")
   }
 
-  return (
-    <div className="
+  let component: ReactNode
+
+  if(usuario.token !== ""){
+    component = (
+
+      <div className="
         flex 
         justify-center 
         w-full 
@@ -32,16 +37,25 @@ function Navbar() {
                 <div className="
                     flex
                     gap-4">
-                    <Link to='/postagens' className='text-2xl fonte-bold hover:underline'>Postagens</Link>
-                    <Link to='/cadastrartema' className="text-2xl fonte-bold hover:underline">Cadastro-tema</Link>
-                    <Link to='/temas' className="text-2xl fonte-bold hover:underline">Temas</Link>
-                    <Link to="/cadastro" className="text-2xl fonte-bold hover:underline"> Cadastro-usuário</Link>
-                    <Link to="/login" onClick={logout} className="text-2xl fonte-bold hover:underline">
-                     Sair 
+                    <Link to='/postagens' className='text-2xl fonte-bold hover:underline'>Postagens |</Link>
+                    <Link to='/cadastrartema' className="text-2xl fonte-bold hover:underline">Cadastro-tema |</Link>
+                    <Link to='/temas' className="text-2xl fonte-bold hover:underline">Temas |</Link>
+                    <Link to="/cadastro" className="text-2xl fonte-bold hover:underline"> Cadastro-usuário |</Link>
+                    <Link to='/perfil' className="text-2xl fonte-bold hover:underline">Perfil</Link>
+                    <Link to="/login" onClick={logout} className="text-red-600 text-2xl fonte-bold hover:underline">
+                      Sair 
                     </Link> 
                 </div>
         </div>
-    </div>
+      </div>
+
+    )
+  }
+
+  return (
+    <>
+      { component }
+    </>
   )
 }
 

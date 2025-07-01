@@ -1,8 +1,16 @@
 import { GithubLogo, InstagramLogo, LinkedinLogo } from "@phosphor-icons/react"
+import { useContext, type ReactNode } from "react"
+import { AuthContext } from "../../contexts/AuthContext"
 
 
 function Footer() {
-  return (
+
+  const { usuario } = useContext(AuthContext)
+
+  let component: ReactNode
+
+  if (usuario.token !== ""){
+    component = (
     <div className="
         bg-gray-100
         py-6
@@ -25,10 +33,17 @@ function Footer() {
               <GithubLogo size={32} color="#01398e" />
             </a>
             <a href="https://www.instagram.com/wesley_lima0/" target="_blank">
-            <InstagramLogo size={32} color="#01398e" />
+              <InstagramLogo size={32} color="#01398e" />
             </a>
         </div>
     </div>
+    )
+  }
+
+  return (
+    <>
+      { component }
+    </>
   )
 }
 
